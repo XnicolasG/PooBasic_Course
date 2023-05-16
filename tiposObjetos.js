@@ -41,12 +41,13 @@ console.log(SrPizza);
 // -- Prototipos con sintaxis de clases
 
  class Student2{
+    //atributos
     constructor({name, age, aprovedCourses}){
         this.name = name;
         this.age = age;
         this.aprovedCourses = aprovedCourses;
     }
-
+    //metodo
     NewAprovedCourse(newCourse){
         this.aprovedCourses.push(newCourse);
     }
@@ -57,5 +58,6 @@ console.log(SrPizza);
     age:26,
     aprovedCourses:['React: intro', 'Manejo de estados']}
  )
+ 
 Xni.NewAprovedCourse('Render');
  console.log(Xni);
