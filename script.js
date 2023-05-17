@@ -167,7 +167,7 @@ class freeStudent extends mainStudent{
     constructor(props){
         super(props)
     }
-    approvedCourse(newCourse){
+    NewAprovedCourse(newCourse){
         if (newCourse.isFree) {
             this.approvedCourses.push(newCourse);
           } else {
@@ -180,7 +180,7 @@ class basicStudent extends mainStudent{
     constructor(props){
         super(props)
     }
-    approvedCourse(newCourse){
+    NewAprovedCourse(newCourse){
         if (newCourse.lang !== "english") {
             this.approvedCourses.push(newCourse);
           } else {
@@ -192,7 +192,7 @@ class expertStudent extends mainStudent{
     constructor(props){
         super(props)
     }
-    approvedCourses(newCourse){
+    NewAprovedCourse(newCourse){
         this.approvedCourse.push(newCourse)       
     }
 }
