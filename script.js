@@ -1,3 +1,21 @@
+class Comments{
+    constructor({
+        content,
+        studentName,
+        studentRole = 'Estudiante',
+    }){
+        this.content = content; 
+        this.studentName = studentName;
+        this.studentRole = studentRole;
+        this.likes = 0
+    }
+    Publish(){
+        console.log(this.studentName + "(" + this.studentRole + ")");
+        console.log(this.likes + " likes");
+        console.log(this.content);
+    }
+}
+
 class Student {
     constructor({
         name,  //si en un objeto se define una propiedad que va a tener el mismo valor ej: name: name, se puede escribir simplemente con name,
@@ -161,7 +179,38 @@ class mainStudent {
     NewAprovedCourse(NC){
         this.approvedCourses.push(NC);
     }
+    shareComment(text){
+        const comment = new Comments({
+            content: text,
+            studentName: this.name,
+        })
+        comment.Publish();
+    }
 }
+
+
+//sub clase de clase madre
+class teacherStudent extends mainStudent{
+    constructor(props){
+        super(props)
+    }
+    NewAprovedCourse(newCourse){
+        this.approvedCourse.push(newCourse)       
+    }  
+
+    //llamado de metodo en el que dentro que crea una instancia de clase Comments
+    shareComment(text){
+        const comment = new Comments({
+            content: text,
+            studentName: this.name,
+            studentRole: 'Teacher' //se modifica estructura del metodo creado en super clase mainStudent
+        })
+        comment.Publish();
+    }
+
+}
+
+
 
 class freeStudent extends mainStudent{
     constructor(props){
@@ -196,6 +245,13 @@ class expertStudent extends mainStudent{
         this.approvedCourse.push(newCourse)       
     }
 }
+
+const admin = new teacherStudent({
+    name: 'SrPizza',
+    username:'AdminPizza',
+    email: 'SrPizza@admin.com',
+    github: 'PizzaDev'
+})
 
 const juan = new basicStudent({
     name: 'Juan',
